@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Bowling {
 	class Program {
@@ -17,10 +16,13 @@ namespace Bowling {
 
 			for (int i = 0; i < 10; i++) {
 				var nbr = rnd.Next(0, 31);
-				// score.Add(nbr); not needed?
-				final += nbr;
+				score.Add(nbr);
 				
 				msg += i != 9 ? $"{nbr}, " : $"{nbr}]";
+			}
+
+			foreach (var item in score) {
+				final += item;
 			}
 
 			Console.WriteLine($"Final score is {final}.");
