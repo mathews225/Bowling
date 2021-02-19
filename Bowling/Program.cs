@@ -4,26 +4,35 @@ using System.Linq;
 
 namespace Bowling {
 	class Program {
-		static void Main(string[] args) {
 
+		static void Bowl1Game(Random rnd) {
 
-			// generate 10 random frames (0-30) of bowling and print the final score.
-
-			var rnd = new Random();
 			var score = new List<int>(10);
+			var final = 0;
 			var msg = $"Scoreboard [";
 
 
 			for (int i = 0; i < 10; i++) {
 				var nbr = rnd.Next(0, 31);
 				score.Add(nbr);
+				
 				msg += i != 9 ? $"{nbr}, " : $"{nbr}]";
 			}
+
+			foreach (var item in score) {
+				final += item;
+			}
+
 			Console.WriteLine(msg);
+			Console.WriteLine($"Final score is {final}.\n");
 
-			var final = score.Sum();
-			Console.WriteLine($"Final score is {final}.");
+		}
+		static void Main(string[] args) {
 
+			var rnd = new Random();
+			for (int i = 0; i < 3; i++) {
+				Bowl1Game(rnd);
+			}
 
 		}
 	}
