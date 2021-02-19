@@ -5,7 +5,7 @@ using System.Linq;
 namespace Bowling {
 	class Program {
 
-		static void Bowl1Game(Random rnd) {
+		static int Bowl1Game(Random rnd) {
 
 			var score = new List<int>(10);
 			var final = 0;
@@ -25,14 +25,27 @@ namespace Bowling {
 
 			Console.WriteLine(msg);
 			Console.WriteLine($"Final score is {final}.\n");
-
+			return final;
 		}
+
 		static void Main(string[] args) {
 
 			var rnd = new Random();
-			for (int i = 0; i < 3; i++) {
-				Bowl1Game(rnd);
+			var series = 0;
+			var x = 1;
+			var total = 0;
+			while ( total <300 ){
+				total = Bowl1Game(rnd);
+				x++;
 			}
+
+			Console.WriteLine($"Score of 300 took {x} number of tries!!");
+			//for (int i = 0; i < ; i++) {
+			//	series += total;
+			//	if (total >= 295);
+			//}
+
+			//Console.WriteLine($"Combined score = {series}");
 
 		}
 	}
